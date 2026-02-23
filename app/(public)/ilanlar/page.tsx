@@ -36,7 +36,8 @@ export default async function IlanlarPage({
   const from = (page - 1) * pageSize;
   const to = from + pageSize - 1;
 
-  const { count } = await buildQuery().select("*", { count: "exact", head: true });
+  // Supabase tip tanımları select'e 2. argüman vermeye izin vermiyor; count için assertion kullanıyoruz
+  const { count } = await (buildQuery() as unknown as { select: (a: string, b?: object) => Promise<{ count: number | null }> }).select("*", { count: "exact", head: true });
   const total = count ?? 0;
   const totalPages = Math.ceil(total / pageSize);
 

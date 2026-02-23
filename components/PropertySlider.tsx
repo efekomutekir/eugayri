@@ -140,7 +140,9 @@ function DotButton({
     setSelected(emblaApi.selectedScrollSnap() === index);
     const onSelect = () => setSelected(emblaApi.selectedScrollSnap() === index);
     emblaApi.on("select", onSelect);
-    return () => emblaApi.off("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi, index]);
 
   return (

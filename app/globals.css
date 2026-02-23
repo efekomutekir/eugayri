@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --eu-black: #0a0a0a;
+  --eu-black-soft: #141414;
+  --eu-black-card: #1a1a1a;
+  --eu-gold: #c9a227;
+  --eu-gold-light: #e5c158;
+  --eu-gold-dark: #a6851e;
+  --eu-gold-muted: rgba(201, 162, 39, 0.15);
+  --eu-white: #fafafa;
+  --eu-muted: #a1a1aa;
+  --eu-muted-light: #d4d4d8;
+  --color-primary: var(--eu-gold);
+  /* Tasarım sistemi */
+  --shadow-card: 0 4px 24px -4px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-card-hover: 0 24px 48px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 162, 39, 0.2);
+  --shadow-glow: 0 0 40px -8px rgba(201, 162, 39, 0.25);
+  --radius-card: 1rem;
+  --radius-card-lg: 1.25rem;
+  --radius-button: 0.75rem;
+  --transition-smooth: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme inline {
+  --color-background: var(--eu-black);
+  --color-foreground: var(--eu-white);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--eu-black);
+  color: var(--eu-white);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* EU GAYRİMENKÜL brand */
+.text-eu-gold { color: var(--eu-gold); }
+.bg-eu-gold { background-color: var(--eu-gold); }
+.border-eu-gold { border-color: var(--eu-gold); }
+.hover\:bg-eu-gold:hover { background-color: var(--eu-gold); }
+.hover\:text-eu-gold:hover { color: var(--eu-gold); }
+
+/* Kart ve buton geçişleri */
+.eu-card {
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-smooth), transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+.eu-card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+.eu-btn-primary {
+  border-radius: var(--radius-button);
+  transition: background-color var(--transition-smooth), transform 0.15s ease, box-shadow var(--transition-smooth);
+}
+.eu-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow);
+}
